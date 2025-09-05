@@ -1,3 +1,11 @@
+<!-- 
+ DB_HOST=localhost
+DB_PORT=3066
+DB_NAME=maasarada
+DB_USER=root
+DB_PASS=admin
+ -->
+
 <?php
 class Database
 {
