@@ -10,11 +10,11 @@ class Database
 
     public function __construct()
     {
-        $this->host     = getenv('DB_HOST')     ?: $_ENV['DB_HOST'];
-        $this->user     = getenv('DB_USERNAME') ?: $_ENV['DB_USERNAME'];
-        $this->password = getenv('DB_PASSWORD') ?: $_ENV['DB_PASSWORD'];
-        $this->database = getenv('DB_NAME')     ?: $_ENV['DB_NAME'];
-        $this->port     = getenv('DB_PORT')     ?: $_ENV['DB_PORT'];
+        $this->host     = getenv('DB_HOST') ?: $_ENV['DB_HOST'];
+        $this->user     = getenv('DB_USER') ?: $_ENV['DB_USER'];
+        $this->password = getenv('DB_PASS') ?: $_ENV['DB_PASS'];
+        $this->database = getenv('DB_NAME') ?: $_ENV['DB_NAME'];
+        $this->port     = getenv('DB_PORT') ?: $_ENV['DB_PORT'];
 
         if (!$this->dbConnect) {
             $conn = new mysqli(
@@ -26,7 +26,7 @@ class Database
             );
 
             if ($conn->connect_error) {
-                die("Error failed to connect to MySQL: " . $conn->connect_error);
+                die("❌ Error failed to connect to MySQL: " . $conn->connect_error);
             } else {
                 $this->dbConnect = $conn;
             }
