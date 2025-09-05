@@ -1,27 +1,31 @@
 <?php
 
 require_once 'database.php';
+// echo "host=".$this->host.", user=".$this->user.", password=".$this->password.", database=".$this->database.", port=".$this->port;
 class Invoice extends Database{  
 	private $invoiceUserTable = 'invoice_user';	
     private $invoiceOrderTable = 'invoice_order';
 	private $invoiceOrderItemTable = 'invoice_order_item';
 	
-    public function __construct(){
-		echo "host=".$this->host.", user=".$this->user.", password=".$this->password.", database=".$this->database.", port=".$this->port;
-        if(!$this->dbConnect){ 
-            $conn = new mysqli(
-                $this->host,
-                $this->user,
-                $this->password,
-                $this->database,
-                $this->port
-            );
-            if($conn->connect_error){
-                die("Error failed to connect to MySQL: " . $conn->connect_error);
-            }else{
-                $this->dbConnect = $conn;
-            }
-        }
+    // public function __construct(){
+    //     if(!$this->dbConnect){ 
+    //         $conn = new mysqli(
+    //             $this->host,
+    //             $this->user,
+    //             $this->password,
+    //             $this->database,
+    //             $this->port
+    //         );
+    //         if($conn->connect_error){
+    //             die("Error failed to connect to MySQL: " . $conn->connect_error);
+    //         }else{
+    //             $this->dbConnect = $conn;
+    //         }
+    //     }
+    // }
+	public function __construct(){
+        // Just call parent constructor to use the database connection
+        parent::__construct();
     }
 	private function getData($sqlQuery) {
 		$result = mysqli_query($this->dbConnect, $sqlQuery);
