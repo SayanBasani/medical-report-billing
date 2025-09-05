@@ -7,6 +7,7 @@ class Invoice extends Database{
 	private $invoiceOrderItemTable = 'invoice_order_item';
 	
     public function __construct(){
+		echo "host=".$this->host.", user=".$this->user.", password=".$this->password.", database=".$this->database.", port=".$this->port;
         if(!$this->dbConnect){ 
             $conn = new mysqli(
                 $this->host,
