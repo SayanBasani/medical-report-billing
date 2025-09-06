@@ -17,16 +17,16 @@ class Database
 
     public function __construct()
     {
-        $this->host     = "localhost";
-        $this->port     = "3306";
-        $this->user     = "root";
-        $this->database = "maasarada";
-        $this->password = "admin";
-        // $this->host     = getenv('DB_HOST') ?: $_ENV['DB_HOST'];
-        // $this->user     = getenv('DB_USER') ?: $_ENV['DB_USER'];
-        // $this->password = getenv('DB_PASS') ?: $_ENV['DB_PASS'];
-        // $this->database = getenv('DB_NAME') ?: $_ENV['DB_NAME'];
-        // $this->port     = getenv('DB_PORT') ?: $_ENV['DB_PORT'];
+        // $this->host     = "localhost";
+        // $this->port     = "3306";
+        // $this->user     = "root";
+        // $this->database = "maasarada";
+        // $this->password = "admin";
+        $this->host     = getenv('DB_HOST') ?: $_ENV['DB_HOST'];
+        $this->user     = getenv('DB_USER') ?: $_ENV['DB_USER'];
+        $this->password = getenv('DB_PASS') ?: $_ENV['DB_PASS'];
+        $this->database = getenv('DB_NAME') ?: $_ENV['DB_NAME'];
+        $this->port     = getenv('DB_PORT') ?: $_ENV['DB_PORT'];
 
         if (!$this->dbConnect) {
             $conn = new mysqli(
