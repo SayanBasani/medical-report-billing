@@ -60,11 +60,6 @@ class Invoice extends Database{
 	}	
 
 	public function saveInvoice($POST) {
-		// echo "<script>alert('hello good');</script>";
-		echo "'".$POST['userId']."', 
-			'".$POST['companyName']."', 
-			'".$POST['address']."', 
-			'".$POST['subTotal']."'";
 		 $sqlInsert = "
 		INSERT INTO ".$this->invoiceOrderTable."
 		(user_id, 

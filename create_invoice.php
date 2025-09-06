@@ -7,7 +7,7 @@ $invoice->checkLoggedIn();
 
 if (!empty($_POST['companyName']) && $_POST['companyName']) {
     $invoice->saveInvoice($_POST);
-    header("Location:invoice_list.php");
+    header("Location: invoice_list.php");
 }
 ?>
 <!DOCTYPE html>
