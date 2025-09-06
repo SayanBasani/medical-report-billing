@@ -177,6 +177,36 @@ if (!empty($_POST['companyName']) && $_POST['companyName']) {
           <textarea class="form-control" name="address" rows="2"></textarea>
         </div>
       </div>
+      <div class="row mt-3">
+        <div class="col-md-4">
+          <label class="form-label">Tax Amount</label>
+          <input type="number" step="0.01" class="form-control" name="taxAmount" id="taxAmount" value="0" required>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Tax Rate (%)</label>
+          <input type="number" step="0.01" class="form-control" name="taxRate" id="taxRate" value="0" required>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Total After Tax</label>
+          <input type="number" step="0.01" class="form-control" name="totalAftertax" id="totalAftertax" value="0" required>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-md-4">
+          <label class="form-label">Amount Paid</label>
+          <input type="number" step="0.01" class="form-control" name="amountPaid" id="amountPaid" value="0" required>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Amount Due</label>
+          <input type="number" step="0.01" class="form-control" name="amountDue" id="amountDue" value="0" required>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Notes</label>
+          <input type="text" class="form-control" name="notes" id="notes">
+        </div>
+      </div>
+
 
       <div class="mt-4">
         <table class="table table-bordered text-center align-middle" id="invoiceItem">
@@ -218,6 +248,7 @@ if (!empty($_POST['companyName']) && $_POST['companyName']) {
         </div>
       </div>
 
+        
       <div class="text-end mt-4">
         <button type="submit" class="btn btn-main">💾 Save Invoice</button>
       </div>

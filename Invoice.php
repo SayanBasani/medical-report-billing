@@ -61,31 +61,42 @@ class Invoice extends Database{
 
 	public function saveInvoice($POST) {
 		// echo "<script>alert('hello good');</script>";
-
-		$sqlInsert = "
-			INSERT INTO ".$this->invoiceOrderTable."
-			(user_id, 
-			order_receiver_name,
-			order_receiver_address, 
-			order_total_before_tax, 
-			order_total_tax, 
-			order_tax_per, 
-			order_total_after_tax, 
-			order_amount_paid, 
-			order_total_amount_due, 
-			note)
-
-			VALUES (
-			'".$POST['userId']."', 
+		echo "'".$POST['userId']."', 
 			'".$POST['companyName']."', 
 			'".$POST['address']."', 
-			'".$POST['subTotal']."', 
-			'".$POST['taxAmount']."', 
-			'".$POST['taxRate']."', 
-			'".$POST['totalAftertax']."', 
-			'".$POST['amountPaid']."', 
-			'".$POST['amountDue']."', 
-			'".$POST['notes']."')";		
+			'".$POST['subTotal']."'";
+		 $sqlInsert = "
+		INSERT INTO ".$this->invoiceOrderTable."
+		(user_id, 
+		order_receiver_name,
+		order_receiver_address, 
+		order_total_before_tax, 
+		order_total_tax, 
+		order_tax_per, 
+		order_total_after_tax, 
+		order_amount_paid, 
+		order_total_amount_due, 
+		note)
+
+		VALUES (
+		'".$POST['userId']."', 
+		'".$POST['companyName']."', 
+		'".$POST['address']."', 
+		'".$POST['subTotal']."', 
+		'".$POST['taxAmount']."', 
+		'".$POST['taxRate']."', 
+		'".$POST['totalAftertax']."', 
+		'".$POST['amountPaid']."', 
+		'".$POST['amountDue']."', 
+		'".$POST['notes']."')";		
+
+
+		// mysqli_query($this->dbConnect, $sqlInsert);
+		// $sqlInsert_ = "
+		// 	INSERT INTO ".$this->invoiceOrderTable."
+		// 	(user_id, order_receiver_name,order_receiver_address, order_total_before_tax, order_total_tax, order_tax_per, order_total_after_tax, order_amount_paid, order_total_amount_due, note)
+
+		// 	VALUES ('".$POST['userId']."', '".$POST['companyName']."', '".$POST['address']."', '".$POST['subTotal']."', '".$POST['taxAmount']."', '".$POST['taxRate']."', '".$POST['totalAftertax']."', '".$POST['amountPaid']."', '".$POST['amountDue']."', '".$POST['notes']."')";		
 
 		mysqli_query($this->dbConnect, $sqlInsert);
 		$lastInsertId = mysqli_insert_id($this->dbConnect);
